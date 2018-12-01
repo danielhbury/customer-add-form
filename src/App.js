@@ -10,6 +10,7 @@ class App extends Component {
       lastName: '',
       email: '',
       customers: [],
+      successFulAddMessage: '',
     }
     this.handleInputUpdate = this.handleInputUpdate.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -31,11 +32,12 @@ class App extends Component {
       lastName: '',
       email: '',
       customers,
+      successFulAddMessage: `${firstName} ${lastName} was successfully added.`
     })
   }
 
   render() {
-    const { customers, firstName, lastName, email } = this.state;
+    const { customers, firstName, lastName, email, successFulAddMessage } = this.state;
 
     const customerList = customers.length ? customers.map((e) => {
       return (
@@ -64,6 +66,7 @@ class App extends Component {
           </div>
           <button type="submit">Add Customer</button>
         </form>
+        <p>{successFulAddMessage}</p>
         <div className="customer-list-container">
           <h3>Customer List</h3>
           {customerList}
